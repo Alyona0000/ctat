@@ -1,0 +1,5 @@
+{
+  "version": "0.2.0",
+  "configurations": [],
+  "_note": "R-Debugger configurations removed to stop 'Please install vscDebugger' popup. Backup saved as .vscode/launch.json.bak"
+}
