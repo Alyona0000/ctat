@@ -9,7 +9,7 @@ library(plotrix)
 library(dplyr)
 library(readr)
 
-plot_dir <- file.path(getwd(),'plots')
+plot_dir <- file.path(getwd(),'plots','report4')
 out_dir  <- file.path(getwd(),'outputs')
 if (!dir.exists(plot_dir)) dir.create(plot_dir, recursive = TRUE)
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
@@ -92,6 +92,8 @@ sig_p <- y$Location[y$signif_by_prop_bonf]
 cat('- Штати, для яких одночасні Wilson CI не містять 0.51: ', if(length(sig_ci)>0) paste(sig_ci, collapse=', ') else 'none', '\n', file = report_file, append = TRUE)
 cat('- Штати, для яких скориговані p-значення (Bonferroni) < 0.05 (prop.test): ', if(length(sig_p)>0) paste(sig_p, collapse=', ') else 'none', '\n', file = report_file, append = TRUE)
 
-cat('\nДокладні результати збережено в outputs/4_variant1_results.csv і графік у plots/4_variant1_CIs.png\n', file = report_file, append = TRUE)
+cat('\nДокладні результати збережено в outputs/4_variant1_results.csv і графік у plots/report4/4_variant1_CIs.png\n', file = report_file, append = TRUE)
+cat('\n## Графік\n', file = report_file, append = TRUE)
+cat('\n![Simultaneous Wilson CIs (Variant 1)](../plots/report4/4_variant1_CIs.png)\n', file = report_file, append = TRUE)
 
 message('Variant 1 analysis completed: results -> outputs/4_variant1_results.csv; plot -> plots/4_variant1_CIs.png; report -> ', report_file)

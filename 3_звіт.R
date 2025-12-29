@@ -12,7 +12,7 @@ library(ggplot2)
 library(corrplot)
 library(qgraph)
 
-plot_dir <- file.path(getwd(),'plots')
+plot_dir <- file.path(getwd(),'plots','report3')
 out_dir  <- file.path(getwd(),'outputs')
 if (!dir.exists(plot_dir)) dir.create(plot_dir, recursive = TRUE)
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
@@ -128,6 +128,13 @@ cat('\n\nВибрана пара для детального аналізу: ', 
 cat(sprintf('\nPearson r = %.3f; Spearman r = %.3f; Kendall tau = %.3f\n', M_pearson[pair1,pair2], M_spearman[pair1,pair2], M_kendall[pair1,pair2]), file=report, append=TRUE)
 cat('\nРік за роком кореляція для цієї пари збережена у файлі outputs/', sprintf('year_corr_%s_%s.csv',pair1,pair2), '\n', file=report, append=TRUE)
 
-cat('\nГрафіки (corrplot, pairs, scatter) збережено у plots/.\n')
+cat('\nГрафіки (corrplot, pairs, scatter) збережено у plots/report3/.
+\n')
+cat('\n## Графіки\n', file = report, append = TRUE)
+cat('\n![Corrplot (mixed)](../plots/report3/corrplot_pearson_mixed.png)\n', file = report, append = TRUE)
+cat('\n![Corrplot (hclust)](../plots/report3/corrplot_pearson_hclust.png)\n', file = report, append = TRUE)
+cat('\n![qgraph network](../plots/report3/qgraph_pearson.png)\n', file = report, append = TRUE)
+cat('\n![Pairs plot (group 1)](../plots/report3/pairs_group_01.png)\n', file = report, append = TRUE)
+cat('\n![Scatter for chosen pair](../plots/report3/scatter_{{T1}}_{{T2}}.png)\n', file = report, append = TRUE)
 
 message('Done. Results in outputs/ and plots/.')

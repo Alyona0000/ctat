@@ -9,7 +9,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 
-plot_dir <- file.path(getwd(),'plots')
+plot_dir <- file.path(getwd(),'plots','report5')
 out_dir  <- file.path(getwd(),'outputs')
 if (!dir.exists(plot_dir)) dir.create(plot_dir, recursive = TRUE)
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
@@ -109,5 +109,12 @@ cat('# Робота 5 — Результати розрахунків резер
 cat('Аналітичні оцінки V, σ, резерви за формулою, та імітаційні VaR для кожного варіанту збережено у outputs/5_variants_results.csv та outputs/5_simulation_summary.csv\n\n', file = report_file, append = TRUE)
 cat('Таблиця результатів (аналітично та імітаційно):\n', file = report_file, append = TRUE)
 write.table(res_df, file = report_file, append = TRUE, row.names = FALSE, sep='\t')
+
+cat('\n## Графіки\n', file = report_file, append = TRUE)
+cat('\nДля кожного варіанту збережено гістограму агрегованого збитку у `plots/report5/` (імена файлів `5_variant{1..10}_agg_loss_hist.png`).\n', file = report_file, append = TRUE)
+for (vnum in res_df$var[1:min(5,nrow(res_df))]) {
+  fn <- sprintf('../plots/report5/5_variant%d_agg_loss_hist.png', vnum)
+  cat(sprintf('\n![Aggregate loss (variant %d)](%s)\n', vnum, fn), file = report_file, append = TRUE)
+}
 
 message('Completed. Results -> outputs/5_variants_results.csv; simulation summaries -> outputs/5_simulation_summary.csv; plots in plots/')

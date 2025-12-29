@@ -1,0 +1,1 @@
+This folder contains plots for the simple regression report (1_звіт.md). Put the generated images here, or run the R code in 1_звіт.md to produce them.

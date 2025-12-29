@@ -1,0 +1,1 @@
+This folder contains plots for Variant 1 (AAPL and LLY). The Python run produced AAPL/LLY plots and they are already present here. Run `scripts/analysis_variant1.R` (or the Python equivalent) to regenerate them.

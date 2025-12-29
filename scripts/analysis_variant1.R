@@ -11,7 +11,7 @@ library(dplyr)
 library(lubridate)
 library(readr)
 
-plot_dir <- file.path(getwd(),'plots')
+plot_dir <- file.path(getwd(),'plots','report2')
 out_dir <- file.path(getwd(),'outputs')
 if (!dir.exists(plot_dir)) dir.create(plot_dir, recursive=TRUE)
 if (!dir.exists(out_dir)) dir.create(out_dir, recursive=TRUE)
@@ -129,4 +129,4 @@ for (t in tickers) {
   cat('\n', file = report_file, append=TRUE)
 }
 
-cat('Analysis finished. Plots in plots/, tables in outputs/.\n')
+cat('Analysis finished. Plots in plots/report2/, tables in outputs/.\n')

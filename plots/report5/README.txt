@@ -1,0 +1,2 @@
+This folder will contain plots for Report 5 (reserves simulation) after running 5_звіт.R
+Run: Rscript 5_звіт.R (ensure data/Canada0.txt life table is present). Note: Monte Carlo (B=200000) can be slow; reduce B for quick tests.
